@@ -6,7 +6,7 @@ class RegisterUseCase {
   final RegisterRepository repository;
   RegisterUseCase(this.repository);
 
-  Future<bool> call(RegisterEntity entity) async {
+  Future<String?> call(RegisterEntity entity) async {
     final model = RegisterModel(
       name: entity.name,
       email: entity.email,

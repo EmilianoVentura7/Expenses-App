@@ -35,7 +35,11 @@ class AppRouter {
         path: RouterConstants.register,
         builder:
             (context, state) => BlocProvider(
-              create: (_) => RegisterCubit(AppModule.registerUseCase()),
+              create:
+                  (_) => RegisterCubit(
+                    registerUseCase: AppModule.registerUseCase(),
+                    localStorageService: AppModule.localStorageService(),
+                  ),
               child: const RegisterPage(),
             ),
       ),

@@ -6,7 +6,7 @@ class DioClient {
   final LocalStorageService localStorageService;
 
   DioClient({required this.dio, required this.localStorageService}) {
-    dio.options.baseUrl = 'http://192.168.1.25:3000/api';
+    dio.options.baseUrl = 'http://10.79.50.7:3000/api';
     dio.options.connectTimeout = const Duration(seconds: 30);
     dio.options.receiveTimeout = const Duration(seconds: 30);
     dio.options.contentType = 'application/json';

@@ -7,12 +7,16 @@ class RegisterRepositoryImpl implements RegisterRepository {
   RegisterRepositoryImpl(this.service);
 
   @override
-  Future<bool> register(RegisterModel model) async {
+  Future<String?> register(RegisterModel model) async {
     try {
       final response = await service.register(model);
-      return response.statusCode == 200 || response.statusCode == 201;
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        final data = response.data;
+        return data['token'] as String?;
+      }
+      return null;
     } catch (e) {
-      return false;
+      return null;
     }
   }
 }
